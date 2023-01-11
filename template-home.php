@@ -32,34 +32,39 @@ get_header();?>
 				<div class="feature-block d-lg-flex">
 					<div class="feature-item mb-5 mb-lg-0">
 						<div class="feature-icon mb-4">
-							<i class="icofont-surgeon-alt"></i>
+							<i class="<?php echo $options['feature1_icon'];?>"></i>
 						</div>
-						<span>24 Hours Service</span>
-						<h4 class="mb-3">Online Appoinment</h4>
-						<p class="mb-4">Get ALl time support for emergency.We have introduced the principle of family medicine.</p>
-						<a href="appoinment.html" class="btn btn-main btn-round-full">Make a appoinment</a>
+						<span><?php echo $options['feature1_subtitle'];?></span>
+						<h4 class="mb-3"><?php echo $options['feature1_title'];?></h4>
+						<p class="mb-4"><?php echo $options['feature1_desc'];?></p>
+						<a href="<?php echo $options['feature1_btn']['url'];?>" class="btn btn-main btn-round-full"><?php echo $options['feature1_btn']['text'];?></a>
 					</div>
 				
 					<div class="feature-item mb-5 mb-lg-0">
 						<div class="feature-icon mb-4">
-							<i class="icofont-ui-clock"></i>
+							<i class="<?php echo $options['feature2_icon'];?>"></i>
 						</div>
-						<span>Timing schedule</span>
-						<h4 class="mb-3">Working Hours</h4>
+						<span><?php echo $options['feature2_subtitle'];?></span>
+						<h4 class="mb-3"><?php echo $options['feature2_title'];?></h4>
 						<ul class="w-hours list-unstyled">
-							<li class="d-flex justify-content-between">Sun - Wed : <span>8:00 - 17:00</span></li>
-							<li class="d-flex justify-content-between">Thu - Fri : <span>9:00 - 17:00</span></li>
-							<li class="d-flex justify-content-between">Sat - sun : <span>10:00 - 17:00</span></li>
+							<?php
+								$feature_hours = $options['feature2_hours'];
+								foreach($feature_hours as $feature) {
+								?>
+									<li class="d-flex justify-content-between"><?php echo $feature['feature2_hours_day'];?> <span><?php echo $feature['feature2_hours_time'];?></span></li>
+								<?php
+							}
+							?>
 						</ul>
 					</div>
 				
 					<div class="feature-item mb-5 mb-lg-0">
 						<div class="feature-icon mb-4">
-							<i class="icofont-support"></i>
+							<i class="<?php echo $options['feature3_icon'];?>"></i>
 						</div>
-						<span>Emegency Cases</span>
-						<h4 class="mb-3">1-800-700-6200</h4>
-						<p>Get ALl time support for emergency.We have introduced the principle of family medicine.Get Conneted with us for any urgency .</p>
+						<span><?php echo $options['feature3_subtitle'];?></span>
+						<h4 class="mb-3"><?php echo $options['feature3_title'];?></h4>
+						<p><?php echo $options['feature3_desc'];?></p>
 					</div>
 				</div>
 			</div>
@@ -73,21 +78,21 @@ get_header();?>
 		<div class="row align-items-center">
 			<div class="col-lg-4 col-sm-6">
 				<div class="about-img">
-					<img src="<?php echo get_template_directory_uri();?>/assets/images/about/img-1.jpg" alt="" class="img-fluid">
-					<img src="<?php echo get_template_directory_uri();?>/assets/images/about/img-2.jpg" alt="" class="img-fluid mt-4">
+					<img src="<?php echo $options['about_img1']['url'];?>" alt="<?php echo $options['about_img1']['alt'];?>" class="img-fluid">
+					<img src="<?php echo $options['about_img2']['url'];?>" alt="<?php echo $options['about_img1']['alt'];?>" class="img-fluid mt-4">
 				</div>
 			</div>
 			<div class="col-lg-4 col-sm-6">
 				<div class="about-img mt-4 mt-lg-0">
-					<img src="<?php echo get_template_directory_uri();?>/assets/images/about/img-3.jpg" alt="" class="img-fluid">
+					<img src="<?php echo $options['about_img3']['url'];?>" alt="<?php echo $options['about_img1']['alt'];?>" class="img-fluid">
 				</div>
 			</div>
 			<div class="col-lg-4">
 				<div class="about-content pl-4 mt-4 mt-lg-0">
-					<h2 class="title-color">Personal care <br>& healthy living</h2>
-					<p class="mt-4 mb-5">We provide best leading medicle service Nulla perferendis veniam deleniti ipsum officia dolores repellat laudantium obcaecati neque.</p>
+					<h2 class="title-color"><?php echo $options['about_title'];?></h2>
+					<p class="mt-4 mb-5"><?php echo $options['about_desc'];?></p>
 
-					<a href="service.html" class="btn btn-main-2 btn-round-full btn-icon">Services<i class="icofont-simple-right ml-3"></i></a>
+					<a href="<?php echo $options['about_btn']['url'];?>" class="btn btn-main-2 btn-round-full btn-icon"><?php echo $options['about_btn']['text'];?><i class="icofont-simple-right ml-3"></i></a>
 				</div>
 			</div>
 		</div>
@@ -95,37 +100,22 @@ get_header();?>
 </section>
 <section class="cta-section ">
 	<div class="container">
-		<div class="cta position-relative">
+		<div class="cta position-relative" style="background-image:url('<?php echo $options['counter_img']['background-image']['url'];?>')">
 			<div class="row">
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="counter-stat">
-						<i class="icofont-doctor"></i>
-						<span class="h3 counter" data-count="58">0</span>k
-						<p>Happy People</p>
+				<?php
+				$counters = $options['counters'];
+				foreach($counters as $counter) {
+					?>
+					<div class="col-lg-3 col-md-6 col-sm-6">
+						<div class="counter-stat">
+							<i class="<?php echo $counter['counter_icon'];?>"></i>
+							<span class="h3 counter" data-count="<?php echo $counter['counter_number'];?>">0</span><?php echo $counter['counter_prefix'];?>
+							<p><?php echo $counter['counter_title'];?></p>
+						</div>
 					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="counter-stat">
-						<i class="icofont-flag"></i>
-						<span class="h3 counter" data-count="700">0</span>+
-						<p>Surgery Comepleted</p>
-					</div>
-				</div>
-				
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="counter-stat">
-						<i class="icofont-badge"></i>
-						<span class="h3 counter" data-count="40">0</span>+
-						<p>Expert Doctors</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="counter-stat">
-						<i class="icofont-globe"></i>
-						<span class="h3 counter" data-count="20">0</span>
-						<p>Worldwide Branch</p>
-					</div>
-				</div>
+					<?php
+				}
+				?>
 			</div>
 		</div>
 	</div>
@@ -135,88 +125,33 @@ get_header();?>
 		<div class="row justify-content-center">
 			<div class="col-lg-7 text-center">
 				<div class="section-title">
-					<h2>Award winning patient care</h2>
+					<h2><?php echo $options['service_title'];?></h2>
 					<div class="divider mx-auto my-4"></div>
-					<p>Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt molestias nostrum laudantium. Maiores porro cumque quaerat.</p>
+					<p><?php echo $options['service_subtitle'];?></p>
 				</div>
 			</div>
 		</div>
 
 		<div class="row">
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-item mb-4">
-					<div class="icon d-flex align-items-center">
-						<i class="icofont-laboratory text-lg"></i>
-						<h4 class="mt-3 mb-3">Laboratory services</h4>
-					</div>
+			<?php
+				$services = $options['services'];
+				foreach($services as $service) {
+					?>
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="service-item mb-4">
+								<div class="icon d-flex align-items-center">
+									<i class="<?php echo $service['service_icon'];?> text-lg"></i>
+									<h4 class="mt-3 mb-3"><?php echo $service['service_title'];?></h4>
+								</div>
 
-					<div class="content">
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-item mb-4">
-					<div class="icon d-flex align-items-center">
-						<i class="icofont-heart-beat-alt text-lg"></i>
-						<h4 class="mt-3 mb-3">Heart Disease</h4>
-					</div>
-					<div class="content">
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-item mb-4">
-					<div class="icon d-flex align-items-center">
-						<i class="icofont-tooth text-lg"></i>
-						<h4 class="mt-3 mb-3">Dental Care</h4>
-					</div>
-					<div class="content">
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-item mb-4">
-					<div class="icon d-flex align-items-center">
-						<i class="icofont-crutch text-lg"></i>
-						<h4 class="mt-3 mb-3">Body Surgery</h4>
-					</div>
-
-					<div class="content">
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-item mb-4">
-					<div class="icon d-flex align-items-center">
-						<i class="icofont-brain-alt text-lg"></i>
-						<h4 class="mt-3 mb-3">Neurology Sargery</h4>
-					</div>
-					<div class="content">
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-item mb-4">
-					<div class="icon d-flex align-items-center">
-						<i class="icofont-dna-alt-1 text-lg"></i>
-						<h4 class="mt-3 mb-3">Gynecology</h4>
-					</div>
-					<div class="content">
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-					</div>
-				</div>
-			</div>
+								<div class="content">
+									<p class="mb-4"><?php echo $service['service_desc'];?></p>
+								</div>
+							</div>
+						</div>
+					<?php 
+				}
+			?>
 		</div>
 	</div>
 </section>
@@ -225,77 +160,18 @@ get_header();?>
 		<div class="row align-items-center">
 			<div class="col-lg-6 ">
 				<div class="appoinment-content">
-					<img src="<?php echo get_template_directory_uri();?>/assets/images/about/img-3.jpg" alt="" class="img-fluid">
+					<img src="<?php echo $options['appoinment_img']['url'];?>" alt="<?php echo $options['appoinment_img']['alt'];?>" class="img-fluid">
 					<div class="emergency">
-						<h2 class="text-lg"><i class="icofont-phone-circle text-lg"></i>+23 345 67980</h2>
+						<h2 class="text-lg"><i class="icofont-phone-circle text-lg"></i><?php echo $options['appoinment_phone'];?></h2>
 					</div>
 				</div>
 			</div>
 			<div class="col-lg-6 col-md-10 ">
 				<div class="appoinment-wrap mt-5 mt-lg-0">
-					<h2 class="mb-2 title-color">Book appoinment</h2>
-					<p class="mb-4">Mollitia dicta commodi est recusandae iste, natus eum asperiores corrupti qui velit . Iste dolorum atque similique praesentium soluta.</p>
-					     <form id="#" class="appoinment-form" method="post" action="#">
-                    <div class="row">
-                         <div class="col-lg-6">
-                            <div class="form-group">
-                                <select class="form-control" id="exampleFormControlSelect1">
-                                  <option>Choose Department</option>
-                                  <option>Software Design</option>
-                                  <option>Development cycle</option>
-                                  <option>Software Development</option>
-                                  <option>Maintenance</option>
-                                  <option>Process Query</option>
-                                  <option>Cost and Duration</option>
-                                  <option>Modal Delivery</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <select class="form-control" id="exampleFormControlSelect2">
-                                  <option>Select Doctors</option>
-                                  <option>Software Design</option>
-                                  <option>Development cycle</option>
-                                  <option>Software Development</option>
-                                  <option>Maintenance</option>
-                                  <option>Process Query</option>
-                                  <option>Cost and Duration</option>
-                                  <option>Modal Delivery</option>
-                                </select>
-                            </div>
-                        </div>
-
-                         <div class="col-lg-6">
-                            <div class="form-group">
-                                <input name="date" id="date" type="text" class="form-control" placeholder="dd/mm/yyyy">
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <input name="time" id="time" type="text" class="form-control" placeholder="Time">
-                            </div>
-                        </div>
-                         <div class="col-lg-6">
-                            <div class="form-group">
-                                <input name="name" id="name" type="text" class="form-control" placeholder="Full Name">
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <input name="phone" id="phone" type="Number" class="form-control" placeholder="Phone Number">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group-2 mb-4">
-                        <textarea name="message" id="message" class="form-control" rows="6" placeholder="Your Message"></textarea>
-                    </div>
-
-                    <a class="btn btn-main btn-round-full" href="appoinment.html" >Make Appoinment <i class="icofont-simple-right ml-2  "></i></a>
-                </form>
-            </div>
+					<h2 class="mb-2 title-color"><?php echo $options['appoinment_title'];?></h2>
+					<p class="mb-4"><?php echo $options['appoinment_subtitle'];?></p>
+					<?php echo do_shortcode('[contact-form-7 id="50" title="Appoinment"]');?>   
+            	</div>
 			</div>
 		</div>
 	</div>
@@ -305,9 +181,9 @@ get_header();?>
 		<div class="row justify-content-center">
 			<div class="col-lg-7">
 				<div class="section-title text-center">
-					<h2>We served over 5000+ Patients</h2>
+					<h2><?php echo $options['testimonial_title'];?></h2>
 					<div class="divider mx-auto my-4"></div>
-					<p>Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt molestias nostrum laudantium. Maiores porro cumque quaerat.</p>
+					<p><?php echo $options['testimonial_subtitle'];?></p>
 				</div>
 			</div>
 		</div>
@@ -316,83 +192,29 @@ get_header();?>
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-lg-12 testimonial-wrap-2">
-				<div class="testimonial-block style-2  gray-bg">
-					<i class="icofont-quote-right"></i>
 
-					<div class="testimonial-thumb">
-						<img src="<?php echo get_template_directory_uri();?>/assets/images/team/test-thumb1.jpg" alt="" class="img-fluid">
-					</div>
+				<?php
+					$testimonials = $options['testimonials'];
+					foreach($testimonials as $testimonial) {
+					?>
+					<div class="testimonial-block style-2  gray-bg">
+						<i class="icofont-quote-right"></i>
 
-					<div class="client-info ">
-						<h4>Amazing service!</h4>
-						<span>John Partho</span>
-						<p>
-							They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat.
-						</p>
-					</div>
-				</div>
+						<div class="testimonial-thumb">
+							<img src="<?php echo $testimonial['testimonial_img']['url'];?>" alt="<?php echo $testimonial['testimonial_img']['alt'];?>" class="img-fluid">
+						</div>
 
-				<div class="testimonial-block style-2  gray-bg">
-					<div class="testimonial-thumb">
-						<img src="<?php echo get_template_directory_uri();?>/assets/images/team/test-thumb2.jpg" alt="" class="img-fluid">
+						<div class="client-info ">
+							<h4><?php echo $testimonial['testimonial_name'];?></h4>
+							<span><?php echo $testimonial['testimonial_desg'];?></span>
+							<p>
+								<?php echo $testimonial['testimonial_desc'];?>
+							</p>
+						</div>
 					</div>
-
-					<div class="client-info">
-						<h4>Expert doctors!</h4>
-						<span>Mullar Sarth</span>
-						<p>
-							They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat.
-						</p>
-					</div>
-					
-					<i class="icofont-quote-right"></i>
-				</div>
-
-				<div class="testimonial-block style-2  gray-bg">
-					<div class="testimonial-thumb">
-						<img src="<?php echo get_template_directory_uri();?>/assets/images/team/test-thumb3.jpg" alt="" class="img-fluid">
-					</div>
-
-					<div class="client-info">
-						<h4>Good Support!</h4>
-						<span>Kolis Mullar</span>
-						<p>
-							They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat.
-						</p>
-					</div>
-					
-					<i class="icofont-quote-right"></i>
-				</div>
-
-				<div class="testimonial-block style-2  gray-bg">
-					<div class="testimonial-thumb">
-						<img src="<?php echo get_template_directory_uri();?>/assets/images/team/test-thumb4.jpg" alt="" class="img-fluid">
-					</div>
-
-					<div class="client-info">
-						<h4>Nice Environment!</h4>
-						<span>Partho Sarothi</span>
-						<p class="mt-4">
-							They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat.
-						</p>
-					</div>
-					<i class="icofont-quote-right"></i>
-				</div>
-
-				<div class="testimonial-block style-2  gray-bg">
-					<div class="testimonial-thumb">
-						<img src="<?php echo get_template_directory_uri();?>/assets/images/team/test-thumb1.jpg" alt="" class="img-fluid">
-					</div>
-
-					<div class="client-info">
-						<h4>Modern Service!</h4>
-						<span>Kolis Mullar</span>
-						<p>
-							They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat.
-						</p>
-					</div>
-					<i class="icofont-quote-right"></i>
-				</div>
+					<?php 
+				}
+ 				?>
 			</div>
 		</div>
 	</div>
@@ -402,9 +224,9 @@ get_header();?>
 		<div class="row justify-content-center">
 			<div class="col-lg-7">
 				<div class="section-title text-center">
-					<h2>Partners who support us</h2>
+					<h2><?php echo $options['client_title'];?></h2>
 					<div class="divider mx-auto my-4"></div>
-					<p>Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt molestias nostrum laudantium. Maiores porro cumque quaerat.</p>
+					<p><?php echo $options['client_subtitle'];?></p>
 				</div>
 			</div>
 		</div>
@@ -412,56 +234,19 @@ get_header();?>
 
 	<div class="container">
 		<div class="row clients-logo">
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="<?php echo get_template_directory_uri();?>/assets/images/about/1.png" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="<?php echo get_template_directory_uri();?>/assets/images/about/2.png" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="<?php echo get_template_directory_uri();?>/assets/images/about/3.png" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="<?php echo get_template_directory_uri();?>/assets/images/about/4.png" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="<?php echo get_template_directory_uri();?>/assets/images/about/5.png" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="<?php echo get_template_directory_uri();?>/assets/images/about/6.png" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="<?php echo get_template_directory_uri();?>/assets/images/about/3.png" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="<?php echo get_template_directory_uri();?>/assets/images/about/4.png" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="<?php echo get_template_directory_uri();?>/assets/images/about/5.png" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="<?php echo get_template_directory_uri();?>/assets/images/about/6.png" alt="" class="img-fluid">
-				</div>
-			</div>
+			<?php
+			$clients = $options['clients'];
+			foreach($clients as $client) {
+				?>
+					<div class="col-lg-2">
+						<div class="client-thumb">
+							<img src="<?php echo $client['client_logo']['url'];?>" alt="<?php echo $client['client_logo']['alt'];?>" class="img-fluid">
+						</div>
+					</div>
+
+				<?php 
+			}
+			?>
 		</div>
 	</div>
 </section>

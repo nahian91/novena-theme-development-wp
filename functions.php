@@ -145,6 +145,9 @@ function novena_scripts() {
 	// Iconfont CSS
 	wp_enqueue_style( 'iconfont', get_template_directory_uri() . '/assets/plugins/icofont/icofont.min.css', array(), _S_VERSION, 'all' );
 
+	// Font Awesome
+	wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css', array(), _S_VERSION, 'all');
+
 	// Slick CSS
 	wp_enqueue_style( 'slick', get_template_directory_uri() . '/assets/plugins/slick-carousel/slick/slick.css', array(), _S_VERSION, 'all' );
 
@@ -168,6 +171,7 @@ function novena_scripts() {
 
 	// Google Map JS
 	wp_enqueue_script( 'google-map', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA', array('jquery'), _S_VERSION, true );
+
 
 	// Gmap JS
 	wp_enqueue_script( 'gmap', get_template_directory_uri() . '/assets/plugins/google-map/gmap.js', array('jquery'), _S_VERSION, true );

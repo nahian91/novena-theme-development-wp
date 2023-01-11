@@ -833,20 +833,20 @@ a:focus {
     margin: 8px 3px;
   }
 }
-.cta {
-  background: url("../images/bg/bg-4.jpg") no-repeat 50% 50%;
-  background-size: cover;
+/* .cta {
   position: relative;
+  z-index: 2;
 }
 .cta:before {
   position: absolute;
   content: "";
+  z-index: -1;
   left: 0px;
   top: 0px;
   width: 100%;
   height: 100%;
   background: rgba(34, 58, 102, 0.95);
-}
+} */
 
 .mb-30 {
   margin-bottom: 30px;
