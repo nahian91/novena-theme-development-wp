@@ -605,12 +605,13 @@ if(class_exists('CSF')) {
       'icon'   => 'fas fa-rocket'
     ));
 
-    // About Breadcumb
+    // About Content
     CSF::createSection($prefix, array(
       'parent' => 'about_page',
       'title' => __('About Page','novena'),
       'icon'   => 'fas fa-rocket',
       'fields' => array(
+        // Breadcumb
         array(
           'id' => 'breadcumb_items',
           'title' => __('Breadcumb Items', 'novena'),
@@ -633,24 +634,17 @@ if(class_exists('CSF')) {
               'output' => '.page-title.bg-1'
             ),
           )
-        )
-      ),
-    ));
+        ),
 
-    // About Title
-    CSF::createSection($prefix, array(
-      'parent' => 'about_page',
-      'title' => __('About Page','novena'),
-      'icon'   => 'fas fa-rocket',
-      'fields' => array(
+        // Title
         array(
-          'id' => 'breadcumb_items',
+          'id' => 'about_title',
           'title' => __('About Title', 'novena'),
           'type' => 'fieldset',
           'fields' => array(
             array(
-              'id' => 'about_title',
-              'title' => __('About Title', 'novena'),
+              'id' => 'about_heading',
+              'title' => __('About Heading', 'novena'),
               'type' => 'text'
             ),
             array(
@@ -664,7 +658,68 @@ if(class_exists('CSF')) {
               'type' => 'media',
             ),
           )
-        )
+        ),
+
+        // Features
+        array(
+          'id' => 'about_features_box',
+          'title' => __('About Features', 'novena'),
+          'type' => 'fieldset',
+          'fields' => array(
+            array(
+              'id'     => 'about_features',
+              'type'   => 'repeater',
+              'title'  => __('About Features','novena'),
+              'max'    => 4,
+              'button_title' => __('Add New', 'novena'),
+              'fields' => array(            
+                array(
+                  'id'    => 'about_features_img',
+                  'type'  => 'media',
+                  'title' => __('About Feature Image', 'novena')
+                ),
+                array(
+                  'id'    => 'about_features_title',
+                  'type'  => 'text',
+                  'title' => __('About Feature Title', 'novena')
+                ),
+                array(
+                  'id'    => 'about_features_desc',
+                  'type'  => 'textarea',
+                  'title' => __('About Feature Description', 'novena')
+                ),
+              ),
+            ),
+          )
+        ),
+
+        // Achievements
+        array(
+          'id' => 'about_achievements_box',
+          'title' => __('About Achievements', 'novena'),
+          'type' => 'fieldset',
+          'fields' => array(
+            array(
+              'id'    => 'about_achievements_title',
+              'type'  => 'text',
+              'title' => __('About Achievements Title', 'novena')
+            ),
+            array(
+              'id'     => 'about_achievements',
+              'type'   => 'repeater',
+              'title'  => __('About Achievements Image','novena'),
+              'max'    => 6,
+              'button_title' => __('Add New', 'novena'),
+              'fields' => array(            
+                array(
+                  'id'    => 'about_achievements_img',
+                  'type'  => 'media',
+                  'title' => __('About Achievements Image', 'novena')
+                ),
+              ),
+            ),
+          )
+        ),
       ),
     ));
 }

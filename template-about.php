@@ -19,7 +19,7 @@ get_header();?>
 <?php get_template_part('template-parts/about/about', 'awards'); ?>
 
 <!-- Teams -->
-<?php get_template_part('template-parts/about/about', 'teams'); ?>
+<?php get_template_part('template-parts/about/about', 'team'); ?>
 
 <!-- Testimonials -->
 <?php get_template_part('template-parts/about/about', 'testimonial'); ?>

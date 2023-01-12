@@ -1,7 +1,8 @@
 <?php 
   $options = get_option( 'novena_options' );
-  $about_breadcumb_subtitle = $options['breadcumb_subtitle'];
-  $about_breadcumb_title = $options['breadcumb_title'];
+  $breadcumb_items = $options['breadcumb_items'];
+  $about_breadcumb_subtitle = $breadcumb_items['breadcumb_subtitle'];
+  $about_breadcumb_title = $breadcumb_items['breadcumb_title'];
 ?>
 
 <section class="page-title bg-1">
