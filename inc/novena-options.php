@@ -191,12 +191,33 @@ if(class_exists('CSF')) {
       'icon'   => 'fas fa-rocket'
     ));
 
+    // Feature Show / Hide
+    CSF::createSection($prefix, array(
+      'parent' => 'features_section',
+      'title' => __('Show Feature?','novena'),
+      'icon'   => 'fas fa-rocket',
+      'fields' => array(
+        array(
+          'id' => 'feature_switch',
+          'title' => __('Show Feature?', 'novena'),
+          'type' => 'switcher',
+          'label'   => __('Do you want activate it ?', 'novena'),
+          'default' => true
+        ),
+      )
+    ));
+
     // Feature 1
     CSF::createSection($prefix, array(
       'parent' => 'features_section',
       'title' => __('Feature 1','novena'),
       'icon'   => 'fas fa-rocket',
       'fields' => array(
+        array(
+          'id' => 'feature1_icon',
+          'title' => __('Feature 1 Icon', 'novena'),
+          'type' => 'icon'
+        ),
         array(
           'id' => 'feature1_icon',
           'title' => __('Feature 1 Icon', 'novena'),
@@ -309,6 +330,12 @@ if(class_exists('CSF')) {
       'title' => __('About Section','novena'),
       'icon'   => 'fas fa-rocket',
       'fields' => array(
+        array(
+          'id' => 'about_switch',
+          'title' => __('Show About?', 'novena'),
+          'type' => 'switcher',
+          'default' => true
+        ),
         array(
           'id' => 'about_img1',
           'title' => __('About Image 1', 'novena'),
@@ -569,5 +596,75 @@ if(class_exists('CSF')) {
           ),
         ),
       )
+    ));
+
+    // About Page
+    CSF::createSection($prefix, array(
+      'id' => 'about_page',
+      'title' => __('About Page', 'novena'),
+      'icon'   => 'fas fa-rocket'
+    ));
+
+    // About Breadcumb
+    CSF::createSection($prefix, array(
+      'parent' => 'about_page',
+      'title' => __('About Page','novena'),
+      'icon'   => 'fas fa-rocket',
+      'fields' => array(
+        array(
+          'id' => 'breadcumb_items',
+          'title' => __('Breadcumb Items', 'novena'),
+          'type' => 'fieldset',
+          'fields' => array(
+            array(
+              'id' => 'breadcumb_subtitle',
+              'title' => __('Breadcumb Subtitle', 'novena'),
+              'type' => 'text'
+            ),
+            array(
+              'id' => 'breadcumb_title',
+              'title' => __('Breadcumb Title', 'novena'),
+              'type' => 'text'
+            ),
+            array(
+              'id' => 'breadcumb_img',
+              'title' => __('Breadcumb Image', 'novena'),
+              'type' => 'background',
+              'output' => '.page-title.bg-1'
+            ),
+          )
+        )
+      ),
+    ));
+
+    // About Title
+    CSF::createSection($prefix, array(
+      'parent' => 'about_page',
+      'title' => __('About Page','novena'),
+      'icon'   => 'fas fa-rocket',
+      'fields' => array(
+        array(
+          'id' => 'breadcumb_items',
+          'title' => __('About Title', 'novena'),
+          'type' => 'fieldset',
+          'fields' => array(
+            array(
+              'id' => 'about_title',
+              'title' => __('About Title', 'novena'),
+              'type' => 'text'
+            ),
+            array(
+              'id' => 'about_desc',
+              'title' => __('About Description', 'novena'),
+              'type' => 'textarea'
+            ),
+            array(
+              'id' => 'about_signature',
+              'title' => __('About Signature', 'novena'),
+              'type' => 'media',
+            ),
+          )
+        )
+      ),
     ));
 }
